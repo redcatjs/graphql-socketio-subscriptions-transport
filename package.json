@@ -1,6 +1,6 @@
 {
   "name": "graphql-socketio-subscriptions-transport",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Socket.IO transport for graphql subscriptions",
   "main": "dist/index.js",
   "scripts": {
