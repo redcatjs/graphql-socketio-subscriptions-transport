@@ -1,4 +1,9 @@
-const EVENT_KEY = 'graphql_subscriptions';
+'use strict';
 
-export { EVENT_KEY };
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9kZWZpbml0aW9ucy5qcyJdLCJuYW1lcyI6WyJFVkVOVF9LRVkiXSwibWFwcGluZ3MiOiJBQUFBLE1BQU1BLFlBQVksdUJBQWxCOztBQUVBLFNBQ0NBLFNBREQiLCJmaWxlIjoiZGVmaW5pdGlvbnMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBFVkVOVF9LRVkgPSAnZ3JhcGhxbF9zdWJzY3JpcHRpb25zJ1xuXG5leHBvcnQge1xuXHRFVkVOVF9LRVlcbn0iXX0=
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var EVENT_KEY = 'graphql_subscriptions';
+
+exports.EVENT_KEY = EVENT_KEY;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9kZWZpbml0aW9ucy5qcyJdLCJuYW1lcyI6WyJFVkVOVF9LRVkiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUEsSUFBTUEsWUFBWSx1QkFBbEI7O1FBR0NBLFMsR0FBQUEsUyIsImZpbGUiOiJkZWZpbml0aW9ucy5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IEVWRU5UX0tFWSA9ICdncmFwaHFsX3N1YnNjcmlwdGlvbnMnXG5cbmV4cG9ydCB7XG5cdEVWRU5UX0tFWVxufSJdfQ==
