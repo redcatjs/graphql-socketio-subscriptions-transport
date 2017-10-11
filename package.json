@@ -1,0 +1,33 @@
+{
+  "name": "graphql-socketio-subscriptions-transport",
+  "version": "1.0.0",
+  "description": "Socket.IO transport for graphql subscriptions",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redcatjs/graphql-socketio-subscriptions-transport.git"
+  },
+  "keywords": [
+    "grapql",
+    "socketio",
+    "subscriptions",
+    "transport"
+  ],
+  "author": "Jo <jo@redcat.ninja> (https://redcat.ninja)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redcatjs/graphql-socketio-subscriptions-transport/issues"
+  },
+  "homepage": "https://github.com/redcatjs/graphql-socketio-subscriptions-transport#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "dependencies": {
+    "graphql": "^0.11.7",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
+  }
+}
