@@ -47,7 +47,6 @@ export default class Server {
 
 	handleConnection(socket) {
 		const connectionSubscriptions = {}
-
 		socket.on(EVENT_KEY, this.onMessage(socket, connectionSubscriptions))
 		socket.on('disconnect', this.onClose(socket, connectionSubscriptions))
 	}

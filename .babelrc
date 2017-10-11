@@ -1,23 +1,20 @@
 {
-  "plugins": [
-    "syntax-async-functions",
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    [
-    	"transform-es2015-classes",
-    	{
-    		loose: true
-    	}
-  	],
-    "transform-es2015-shorthand-properties",
-    [
-    	"transform-es2015-destructuring",
-    	{
-    		loose: true
-    	}
-  	],
-    "transform-es2015-block-scoping",
-    "transform-es2015-modules-commonjs",
-    "transform-regenerator"
-  ]
+	"plugins": [
+		"transform-class-properties",
+		"transform-runtime",
+		"transform-export-extensions",
+		"babel-plugin-inline-import",
+		["module-resolver", {
+			"root": ["./app"],
+			"alias": {
+				"app": "./app",
+			}
+		}]
+	],
+	"presets": [
+		"stage-0",
+		"es2015",
+		"env",
+		"react",
+	]
 }
