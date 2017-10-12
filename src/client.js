@@ -27,10 +27,11 @@ export default class Client {
 			if (!this.reconnecting) {
 				this.reconnectSubscriptions = this.subscriptions
 				this.subscriptions = {}
+				this.maxId = 0
 				this.reconnecting = true
 			}
 		})
-
+		
 		this.ws.on('reconnect', () => {
 			this.reconnecting = false
 
