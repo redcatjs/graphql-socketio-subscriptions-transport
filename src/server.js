@@ -4,7 +4,6 @@ import subscriptionManager from './manager'
 
 import {
 	SUBSCRIPTION_FAIL,
-	SUBSCRIPTION_DATA,
 	SUBSCRIPTION_START,
 	SUBSCRIPTION_END,
 	SUBSCRIPTION_SUCCESS
@@ -24,22 +23,21 @@ export default class Server {
 
 	sendSubscriptionData(socket, id, payload) {
 		socket.emit(EVENT_KEY, {
-			type: SUBSCRIPTION_DATA,
 			id,
 			payload
 		})
 	}
 
-	sendSubscriptionFail(socket, id, payload) {
-		socket.emit(EVENT_KEY, {
+	sendSubscriptionFail(answer, id, payload) {
+		answer({
 			type: SUBSCRIPTION_FAIL,
 			id,
 			payload
 		})
 	}
 
-	sendSubscriptionSuccess(socket, id) {
-		socket.emit(EVENT_KEY, {
+	sendSubscriptionSuccess(answer, id) {
+		answer({
 			type: SUBSCRIPTION_SUCCESS,
 			id
 		})
@@ -61,7 +59,7 @@ export default class Server {
 	}
 
 	onMessage(socket, connectionSubscriptions) {
-		return async ({ id, type, query, variables, operationName }) => {
+		return async ({ id, type, query, variables, operationName }, answer) => {
 			switch (type) {
 				case SUBSCRIPTION_START:
 					const params = {
@@ -90,12 +88,12 @@ export default class Server {
 					try {
 						const subId = await this.subscriptionManager.subscribe(params)
 						connectionSubscriptions[id] = subId
-						this.sendSubscriptionSuccess(socket, id)
+						this.sendSubscriptionSuccess(answer, id)
 					} catch({ errors, message }) {
 						if (errors) {
-							this.sendSubscriptionFail(socket, id, { errors })
+							this.sendSubscriptionFail(answer, id, { errors })
 						} else {
-							this.sendSubscriptionFail(socket, id, { errors: [{ message }] })
+							this.sendSubscriptionFail(answer, id, { errors: [{ message }] })
 						}
 					}
 
@@ -108,7 +106,7 @@ export default class Server {
 
 					break
 				default:
-					this.sendSubscriptionFail(socket, id, {
+					this.sendSubscriptionFail(answer, id, {
 						errors: [{
 							message: 'Invalid message type. Message type must be `subscription_start` or `subscription_end`.'
 						}]
