@@ -89,11 +89,16 @@ export default class Server {
 						const subId = await this.subscriptionManager.subscribe(params)
 						connectionSubscriptions[id] = subId
 						this.sendSubscriptionSuccess(answer, id)
-					} catch({ errors, message }) {
+					} catch(e) {
+						const { errors, message } = e;
 						if (errors) {
 							this.sendSubscriptionFail(answer, id, { errors })
-						} else {
+						}
+						else if(message) {
 							this.sendSubscriptionFail(answer, id, { errors: [{ message }] })
+						}
+						else{
+							this.sendSubscriptionFail(answer, id, { errors: e })
 						}
 					}
 
